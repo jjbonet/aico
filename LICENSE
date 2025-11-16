@@ -1,0 +1,53 @@
+# Licencia y Derechos de Autor
+
+## AICO - Asistente Inteligente para Consultorios Odontológicos
+
+Copyright (c) 2025 Javier Bonet
+
+## Proyecto Académico
+
+Este proyecto es un Trabajo Final de Grado (TFG) desarrollado con fines académicos.
+
+## Términos de Uso
+
+Este software se proporciona con fines educativos y de demostración. 
+
+### Permitido:
+- Uso con fines educativos y académicos
+- Estudio del código fuente
+- Referencia para aprendizaje
+
+### Restricciones:
+- Este es un proyecto académico de demostración
+- No está destinado para uso en producción sin las mejoras necesarias
+- No incluye garantías de ningún tipo para uso comercial
+
+## Aviso Legal
+
+ESTE SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, INCLUYENDO PERO NO LIMITADO A LAS GARANTÍAS DE COMERCIABILIDAD, IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN.
+
+## Datos Médicos
+
+Este sistema de demostración NO debe utilizarse para almacenar datos médicos reales sin las siguientes consideraciones:
+
+- Implementación de medidas de seguridad apropiadas
+- Cumplimiento de regulaciones de privacidad (GDPR, LOPD, etc.)
+- Encriptación de datos sensibles
+- Auditorías de seguridad
+- Gestión apropiada de accesos y permisos
+
+## Trabajo Final de Grado
+
+Este proyecto forma parte de un Trabajo Final de Grado y está sujeto a:
+
+- Evaluación académica
+- Normativas universitarias
+- Derechos de autor del estudiante
+
+**Autor**: Javier Bonet  
+**Año**: 2025  
+**Institución**: [Universidad]
+
+---
+
+Para consultas sobre el uso o licenciamiento de este proyecto, contactar al autor.

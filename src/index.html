@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICO - Asistente Inteligente para Consultorios Odontológicos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦷 AICO</h1>
+            <p class="subtitle">Asistente Inteligente para Consultorios Odontológicos</p>
+        </header>
+
+        <nav class="main-nav">
+            <button class="nav-btn active" onclick="showSection('pacientes')">Pacientes</button>
+            <button class="nav-btn" onclick="showSection('historias')">Historias Clínicas</button>
+            <button class="nav-btn" onclick="showSection('citas')">Citas</button>
+            <button class="nav-btn" onclick="showSection('reportes')">Reportes</button>
+        </nav>
+
+        <main>
+            <!-- Sección Pacientes -->
+            <section id="pacientes" class="content-section active">
+                <h2>Gestión de Pacientes</h2>
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="showModal('nuevo-paciente')">+ Nuevo Paciente</button>
+                    <input type="text" id="buscar-paciente" placeholder="Buscar paciente..." class="search-input">
+                </div>
+                <div class="patient-list">
+                    <div class="patient-card">
+                        <h3>Juan Pérez García</h3>
+                        <p><strong>DNI:</strong> 12345678A</p>
+                        <p><strong>Teléfono:</strong> +34 600 123 456</p>
+                        <p><strong>Última visita:</strong> 15/10/2025</p>
+                        <button class="btn-secondary" onclick="verHistorial(1)">Ver Historial</button>
+                    </div>
+                    <div class="patient-card">
+                        <h3>María López Martínez</h3>
+                        <p><strong>DNI:</strong> 87654321B</p>
+                        <p><strong>Teléfono:</strong> +34 611 234 567</p>
+                        <p><strong>Última visita:</strong> 20/10/2025</p>
+                        <button class="btn-secondary" onclick="verHistorial(2)">Ver Historial</button>
+                    </div>
+                    <div class="patient-card">
+                        <h3>Carlos Ruiz Sánchez</h3>
+                        <p><strong>DNI:</strong> 11223344C</p>
+                        <p><strong>Teléfono:</strong> +34 622 345 678</p>
+                        <p><strong>Última visita:</strong> 25/10/2025</p>
+                        <button class="btn-secondary" onclick="verHistorial(3)">Ver Historial</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Historias Clínicas -->
+            <section id="historias" class="content-section">
+                <h2>Historias Clínicas</h2>
+                <div class="historia-clinica">
+                    <h3>Paciente: Juan Pérez García</h3>
+                    <div class="historia-detalle">
+                        <h4>Información General</h4>
+                        <p><strong>Edad:</strong> 45 años</p>
+                        <p><strong>Alergias:</strong> Penicilina</p>
+                        <p><strong>Enfermedades previas:</strong> Diabetes tipo 2</p>
+                        
+                        <h4>Tratamientos Recientes</h4>
+                        <ul>
+                            <li><strong>15/10/2025:</strong> Limpieza dental - Realizada</li>
+                            <li><strong>01/09/2025:</strong> Empaste pieza 36 - Completado</li>
+                            <li><strong>15/07/2025:</strong> Revisión general - Sin hallazgos</li>
+                        </ul>
+
+                        <h4>Próximas Citas</h4>
+                        <ul>
+                            <li><strong>20/12/2025:</strong> Revisión semestral</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Citas -->
+            <section id="citas" class="content-section">
+                <h2>Gestión de Citas</h2>
+                <div class="action-bar">
+                    <button class="btn-primary" onclick="showModal('nueva-cita')">+ Nueva Cita</button>
+                    <input type="date" id="fecha-citas" class="date-input" value="2025-11-16">
+                </div>
+                <div class="citas-list">
+                    <div class="cita-card">
+                        <div class="cita-hora">09:00</div>
+                        <div class="cita-info">
+                            <h4>María López Martínez</h4>
+                            <p>Limpieza dental</p>
+                        </div>
+                        <div class="cita-status confirmada">Confirmada</div>
+                    </div>
+                    <div class="cita-card">
+                        <div class="cita-hora">10:30</div>
+                        <div class="cita-info">
+                            <h4>Carlos Ruiz Sánchez</h4>
+                            <p>Revisión general</p>
+                        </div>
+                        <div class="cita-status pendiente">Pendiente</div>
+                    </div>
+                    <div class="cita-card">
+                        <div class="cita-hora">12:00</div>
+                        <div class="cita-info">
+                            <h4>Ana González Díaz</h4>
+                            <p>Endodoncia</p>
+                        </div>
+                        <div class="cita-status confirmada">Confirmada</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Reportes -->
+            <section id="reportes" class="content-section">
+                <h2>Reportes y Estadísticas</h2>
+                <div class="reportes-grid">
+                    <div class="reporte-card">
+                        <h3>Pacientes Totales</h3>
+                        <p class="reporte-numero">127</p>
+                    </div>
+                    <div class="reporte-card">
+                        <h3>Citas Este Mes</h3>
+                        <p class="reporte-numero">45</p>
+                    </div>
+                    <div class="reporte-card">
+                        <h3>Tratamientos Activos</h3>
+                        <p class="reporte-numero">23</p>
+                    </div>
+                    <div class="reporte-card">
+                        <h3>Tasa de Ocupación</h3>
+                        <p class="reporte-numero">78%</p>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Evolución de Pacientes (2025)</h3>
+                    <p class="chart-placeholder">📊 Gráfico de evolución mensual de pacientes</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 AICO - Trabajo Final de Grado - Javier Bonet</p>
+        </footer>
+    </div>
+
+    <!-- Modal para nuevo paciente -->
+    <div id="modal-nuevo-paciente" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('nuevo-paciente')">&times;</span>
+            <h2>Nuevo Paciente</h2>
+            <form class="patient-form">
+                <label>Nombre completo:</label>
+                <input type="text" placeholder="Juan Pérez García" required>
+                
+                <label>DNI/NIE:</label>
+                <input type="text" placeholder="12345678A" required>
+                
+                <label>Fecha de nacimiento:</label>
+                <input type="date" required>
+                
+                <label>Teléfono:</label>
+                <input type="tel" placeholder="+34 600 123 456" required>
+                
+                <label>Email:</label>
+                <input type="email" placeholder="paciente@email.com">
+                
+                <label>Dirección:</label>
+                <textarea placeholder="Calle ejemplo, 123"></textarea>
+                
+                <button type="submit" class="btn-primary">Guardar Paciente</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
