@@ -11,21 +11,29 @@ return new class extends Migration
         Schema::create('turnos', function (Blueprint $table) {
             $table->id('id_turno');
 
-            $table->foreignId('id_paciente')->constrained('pacientes')->onDelete('cascade');
-            $table->foreignId('id_usuario')->constrained('users')->onDelete('cascade');
-            $table->foreignId('historia_clinica_id');
+            // FK a pacientes.id_paciente
+            $table->unsignedBigInteger('id_paciente');
+
+            // DNI del usuario (referencia a users.dni)
+            $table->string('dni_usuario', 15);
 
             $table->date('fecha_turno');
             $table->time('hora_turno')->nullable();
-            $table->string('motivo')->nullable();
-            $table->string('estado')->default('pendiente');
+            $table->string('motivo', 255)->nullable();
+            $table->string('estado', 50)->default('pendiente');
 
             $table->timestamps();
 
-            // Foreign key manual
-            $table->foreign('historia_clinica_id')
-                ->references('id_hc')
-                ->on('historias_clinicas')
+            // FK explícita a pacientes.id_paciente
+            $table->foreign('id_paciente')
+                ->references('id_paciente')
+                ->on('pacientes')
+                ->onDelete('cascade');
+
+            // FK explícita a users.dni (dni es unique, se puede)
+            $table->foreign('dni_usuario')
+                ->references('dni')
+                ->on('users')
                 ->onDelete('cascade');
         });
     }

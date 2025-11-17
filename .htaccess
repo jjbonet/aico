@@ -1,0 +1,6 @@
+Options -Indexes
+RewriteEngine On
+
+# Si entras a /aico/ manda todo a /aico/public
+RewriteRule ^$ public/ [L]
+RewriteRule (.*) public/$1 [L]

@@ -1,24 +1,64 @@
+# ---------------------------------------
+# Archivos del sistema operativo
+# ---------------------------------------
 *.log
+Thumbs.db
 .DS_Store
+
+# ---------------------------------------
+# Entornos / Configuración sensible
+# ---------------------------------------
 .env
+.env.*
 .env.backup
 .env.production
-.phpactor.json
-.phpunit.result.cache
-/.fleet
-/.idea
-/.nova
-/.phpunit.cache
-/.vscode
-/.zed
+/storage/*.key
 /auth.json
-/node_modules
+
+# ---------------------------------------
+# Carpetas de Laravel que NO deben subirse
+# ---------------------------------------
+/vendor/
+/node_modules/
+
+# Compilaciones frontend
 /public/build
 /public/hot
+
+# Storage (excepto lo que Laravel publica)
 /public/storage
-/storage/*.key
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
 /storage/pail
-/vendor
-Homestead.json
-Homestead.yaml
-Thumbs.db
+
+# Bootstrap (caché)
+/bootstrap/cache/*
+
+# ---------------------------------------
+# IDEs y editores
+# ---------------------------------------
+/.fleet
+/.idea
+/.vscode
+/.zed
+/phpactor.json
+
+# PHPUnit
+/.phpunit.cache
+/.phpunit.result.cache
+.phpunit.cache
+
+# Logs de npm/yarn
+npm-debug.log
+yarn-error.log
+
+# ---------------------------------------
+# Otras Carpetas del Agente IA-CO
+# ---------------------------------------
+/agenteai-co/models
+/agenteai-co/logs
+/agenteai-co/config.py
+/agenteai-co/test_read_user.py
+

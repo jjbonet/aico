@@ -10,20 +10,22 @@ class AicoSeeder extends Seeder
 {
     public function run(): void
     {
-        // --- USUARIOS ---
+        // --- USUARIO BASE (AICO) ---
         DB::table('users')->insert([
-            'dni'       => '56176515',
-            'name'      => 'Javier',
-            'apellido'  => 'Bonet',
-            'telefono'  => '342-555111',
-            'email'     => 'moni@aico.test',
-            'rol'       => 'odontologa',
-            'password'  => Hash::make('aico123'),
+            'dni'        => '56176515',
+            'name'       => 'Javier',
+            'apellido'   => 'Bonet',
+            'telefono'   => '342-555111',
+            'rol'        => 'odontologa',
+            'email'      => 'javier@aico.test',
+            'email_verified_at' => now(),
+            'password'   => Hash::make('aico123'),
+            'remember_token' => null,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        // id del usuario odontólogo
+        // Obtener ID de ese usuario
         $usuarioId = DB::table('users')->where('dni', '56176515')->value('id');
 
         // --- PACIENTES ---
@@ -63,8 +65,8 @@ class AicoSeeder extends Seeder
             ],
         ]);
 
-        // --- HISTORIA CLÍNICA ---
-        DB::table('historia_clinica')->insert([
+        // --- HISTORIAS CLÍNICAS ---
+        DB::table('historias_clinicas')->insert([
             [
                 'id_paciente'            => 1,
                 'id_usuario'             => $usuarioId,
@@ -83,7 +85,7 @@ class AicoSeeder extends Seeder
                 'motivo_consulta'        => 'Revisión general.',
                 'diagnostico_principal'  => 'Sin hallazgos relevantes.',
                 'descripcion_tratamiento' => 'Limpieza de rutina.',
-                'observaciones'          => 'Control anual recomendado.',
+                'observaciones'          => 'Se recomendó control anual.',
                 'created_at'             => now(),
                 'updated_at'             => now(),
             ],
@@ -104,10 +106,10 @@ class AicoSeeder extends Seeder
         DB::table('turnos')->insert([
             [
                 'id_paciente' => 1,
-                'dni_usuario' => '56176515',
+                'dni_usuario' => '56176515', // DNI del user base
                 'fecha_turno' => now()->addDays(1)->toDateString(),
                 'hora_turno'  => '09:00:00',
-                'motivo'      => 'Control post tratamiento.',
+                'motivo'      => 'Control post tratamiento de conducto.',
                 'estado'      => 'pendiente',
                 'created_at'  => now(),
                 'updated_at'  => now(),
@@ -147,7 +149,7 @@ class AicoSeeder extends Seeder
             ],
             [
                 'id_paciente' => 2,
-                'descripcion' => 'Foto intraoral de control.',
+                'descripcion' => 'Fotografía intraoral de control.',
                 'archivo_url' => '/storage/estudios/paciente2_foto1.jpg',
                 'tipo_archivo' => 'imagen',
                 'ts_subida'   => now(),
@@ -162,7 +164,7 @@ class AicoSeeder extends Seeder
                 'usuario_id' => $usuarioId,
                 'nivel'      => 'INFO',
                 'evento'     => 'Seeder AICO ejecutado',
-                'descripcion' => 'Base de datos inicial para pruebas del prototipo.',
+                'descripcion' => 'Base de datos inicial cargada para pruebas del prototipo AICO.',
                 'ip_origen'  => '127.0.0.1',
                 'created_at' => now(),
             ],
