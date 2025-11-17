@@ -61,4 +61,5 @@ yarn-error.log
 /agenteai-co/logs
 /agenteai-co/config.py
 /agenteai-co/test_read_user.py
+/models
 
